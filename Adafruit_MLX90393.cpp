@@ -365,12 +365,12 @@ bool Adafruit_MLX90393::readData(float *x, float *y, float *z) {
   // See MLX90393 Getting Started Guide for fancy formula
   // tconv = f(OSR, DIG_FILT, OSR2, ZYXT)
   // For now, using Table 18 from datasheet
-  
+
   //obtain delay
   long delayMicros = mlx90393_tconv[_dig_filt][_osr] * 1000;
-  
-  //since delayMicrosenconds have a limit of 16383,
-  //divide delay into multiple parts
+
+  // Since delayMicrosenconds have a limit of 16383,
+  // Divide delay into multiple parts
   do {
     if (delayMicros >= 16383) {
       delayMicroseconds(16383);
@@ -384,7 +384,7 @@ bool Adafruit_MLX90393::readData(float *x, float *y, float *z) {
       delayMicros = 0;
     }
   } while (delayMicros > 0);
-  
+
   return readMeasurement(x, y, z);
 }
 

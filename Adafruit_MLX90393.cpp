@@ -372,16 +372,18 @@ bool Adafruit_MLX90393::readData(float *x, float *y, float *z) {
   //since delayMicrosenconds have a limit of 16383,
   //divide delay into multiple parts
   do {
-	if(delayMicros >= 16383) {
-		delayMicroseconds(16383);
-		delayMicros -= 16383;
-	}else {
-		//minimum delay for delayMicroseconds is 3 micro seconds
-		if(delayMicros < 3) delayMicros = 3;
-		delayMicroseconds(delayMicros);
-		delayMicros = 0;
-	}
-  } while(delayMicros > 0);
+    if (delayMicros >= 16383) {
+      delayMicroseconds(16383);
+      delayMicros -= 16383;
+    } else {
+      // minimum delay for delayMicroseconds is 3 micro seconds
+      if (delayMicros < 3) {
+        delayMicros = 3;
+      }
+      delayMicroseconds(delayMicros);
+      delayMicros = 0;
+    }
+  } while (delayMicros > 0);
   
   return readMeasurement(x, y, z);
 }

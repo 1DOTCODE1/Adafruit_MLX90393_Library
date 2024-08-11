@@ -366,7 +366,7 @@ bool Adafruit_MLX90393::readData(float *x, float *y, float *z) {
   // tconv = f(OSR, DIG_FILT, OSR2, ZYXT)
   // For now, using Table 18 from datasheet
 
-  //obtain delay
+  // Obtain delay for current configuration
   long delayMicros = mlx90393_tconv[_dig_filt][_osr] * 1000;
 
   // Since delayMicrosenconds have a limit of 16383,

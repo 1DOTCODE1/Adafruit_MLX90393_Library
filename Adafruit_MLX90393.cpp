@@ -386,6 +386,15 @@ bool Adafruit_MLX90393::readData(float *x, float *y, float *z) {
   return readMeasurement(x, y, z);
 }
 
+/**
+ * Returns the delay in ms for the single read at the current configurations
+ *
+ * @return True if the operation succeeded, otherwise false.
+ */
+float Adafruit_MLX90393::getDelayForSingleMeasurment(void) {
+  return mlx90393_tconv[_dig_filt][_osr];
+}
+
 bool Adafruit_MLX90393::writeRegister(uint8_t reg, uint16_t data) {
   uint8_t tx[4] = {
       MLX90393_REG_WR,

@@ -145,8 +145,9 @@ const float mlx90393_lsb_lookup[2][8][4][2] = {
     }};
 
 /** Lookup table for conversion time based on [DIF_FILT][OSR].
-*	added 1ms to 7/3 since it would not work any other way, original value 200.37
-*/
+ *	Added 1ms to [7][3] since the sensor was not able to return data
+ *  with the original delay value 200.37
+ */
 const float mlx90393_tconv[8][4] = {
     /* DIG_FILT = 0 */
     {1.27, 1.84, 3.00, 5.30},
@@ -181,6 +182,7 @@ public:
 
   bool readMeasurement(float *x, float *y, float *z);
   bool startSingleMeasurement(void);
+  float getDelayForSingleMeasurment(void);
 
   bool setGain(enum mlx90393_gain gain);
   enum mlx90393_gain getGain(void);

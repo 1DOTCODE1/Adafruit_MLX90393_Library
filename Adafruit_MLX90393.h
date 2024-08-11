@@ -145,7 +145,8 @@ const float mlx90393_lsb_lookup[2][8][4][2] = {
     }};
 
 /** Lookup table for conversion time based on [DIF_FILT][OSR].
- */
+*	added 1ms to 7/3 since it would not work any other way, original value 200.37
+*/
 const float mlx90393_tconv[8][4] = {
     /* DIG_FILT = 0 */
     {1.27, 1.84, 3.00, 5.30},
@@ -162,7 +163,7 @@ const float mlx90393_tconv[8][4] = {
     /* DIG_FILT = 6 */
     {13.36, 26.04, 51.38, 102.07},
     /* DIG_FILT = 7 */
-    {25.65, 50.61, 100.53, 200.37},
+    {25.65, 50.61, 100.53, 201.37},
 };
 
 /**
